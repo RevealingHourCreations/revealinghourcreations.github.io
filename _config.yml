@@ -9,3 +9,11 @@ tusername: revealinghour
 # Build settings
 markdown: kramdown
 permalink: pretty
+
+authors:
+  nishant:
+    name: Nishant Modak
+    email: nm@revealinghour.in
+    web: http://revealinghour.in
+    twitter: nishantmodak
+    github: nishantmodak
