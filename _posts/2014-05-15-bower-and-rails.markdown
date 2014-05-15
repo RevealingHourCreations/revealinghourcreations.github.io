@@ -114,6 +114,6 @@ To install a particular version, lets say 1.9.0, run the command.
 
 The `--save` flag updates your bower.json file, adding the package to the dependencies of your project. The `bower.json` file will now have an entry corresponding to jquery version 1.9.0 in its dependencies.
 
-Now, you should see a folder called jquery in `vendor/assets/javascripts`. This will contain jquery's source files, and its own `bower.json` file. Uncomment the line `// require jquery` by adding `=` making it `//= require jquery' in the `application.js` file.
+Now, you should see a folder called jquery in `vendor/assets/javascripts`. This will contain jquery's source files, and its own `bower.json` file. Uncomment the line `// require jquery` by adding `=` making it `//= require jquery` in the `application.js` file.
 
 Restart your app and jquery should be working fine. Repeat the process for jquery-ujs as an exercise.
