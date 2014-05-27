@@ -3,7 +3,9 @@ title: Revealing Hour Creations
 email: info@revealinghour.in
 description: "A technology blog of people at Revealing Hour Creations."
 baseurl: ""
-url: "http://revealinghour.in"
+subdomain: "blog."
+protocol: "http://"
+url: "revealinghour.in"
 username: revealinghourcreations
 tusername: revealinghour
 # Build settings
