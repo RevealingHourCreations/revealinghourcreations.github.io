@@ -6,43 +6,95 @@ categories: rails
 author: siddhartha
 ---
 
-### What is it and why do I care?
+### What is flight?
+Flight is an evented client side JavaScript framework from Twitter.
 
-Off late, with the potential of client side javaScript being explored, theres been an explosion of client side JS frameworks. FlightJS , from the creators of Twitter. You should totally chuck all your other frameworks and switch to FlightJs becase < insert bold omnipotent claim here >
+### What does it do?
+As the amount of client side JavaScript grows, the code inevitably starts becoming hard to manage and complicated (probably duplicated), despite all your code being organized into functions. Flight helps clean this clutter up by making the code decoupled, modular and evented, thus making the code easy to manage and even debug. Lets look at an example.
 
-Flight may or may not be a replacement for your current JS framework, in case you have any. Its more about the right tool for the right job. Flight is an evented framework for cleaner and modular front end code. It consists of standalone componenets, that encourages decoupling. A component can emit a trigger, and a component can listen for such triggers, and decide to act upon one or more triggers. Having a set of components makes the code quite easy to manage and even easier to debug.
-
-Lets get into an example to understand this better. Below is some html and its corresponding javascript, for a simple tab and pane using bootstrap. Please note that there are two ways to go about this, i.e, using flight with RequireJs, or using standalone flight. This blog goes with the latter.
-
-<p data-height="100" data-theme-id="0" data-slug-hash="hzIAC" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/siddharthabhagwan/pen/hzIAC/'>hzIAC</a> by Siddhartha Bhagwan (<a href='http://codepen.io/siddharthabhagwan'>@siddharthabhagwan</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+### Regular JavaScript Example
+<p data-height="150" data-theme-id="0" data-slug-hash="xIfKg" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/siddharthabhagwan/pen/xIfKg/'>Basic Add Subtract</a> by Siddhartha Bhagwan (<a href='http://codepen.io/siddharthabhagwan'>@siddharthabhagwan</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
 <script async src="//codepen.io/assets/embed/ei.js"></script>
 
-In the flight world of doing this, there would be a slightly different approach to this.
+This is a small program that increments and decrements a value on a button click.
 
-<p data-height="100" data-theme-id="0" data-slug-hash="yrBpv" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/siddharthabhagwan/pen/yrBpv/'>yrBpv</a> by Siddhartha Bhagwan (<a href='http://codepen.io/siddharthabhagwan'>@siddharthabhagwan</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+### The Flight approach
+
+<p data-height="268" data-theme-id="0" data-slug-hash="EnlIG" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/siddharthabhagwan/pen/EnlIG/'>Flight Add Subtract</a> by Siddhartha Bhagwan (<a href='http://codepen.io/siddharthabhagwan'>@siddharthabhagwan</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
 <script async src="//codepen.io/assets/embed/ei.js"></script>
 
-####Flight Components
-Flight-ed code consists of components. A component corresponds directly to an element visible on your page that can/does undergo some change/transformation. Examples could be a button, whose color changes, or that gets enabled or disabled based on certain conditions. It could be a drop down list, whose value is changed, or gets set to something.
+Flight consists of standalone componenets, that encourages decoupling. A component can emit a trigger, and a listen for such triggers and choose to react to one or more triggers.
 
-In our case, we have 2 components - the tab, and the tab-pane. One might ask why isn't the tab-pane a singular structure, or, if they are indeed two different components, why isn't one a tab and the other a pane? In this case, thats just the way [Bootstrap Tabs](http://getbootstrap.com/javascript/#tabs) work.
+#### What is a component?
+A component is a UI element that can undergo a change/transition or have an event generated on it. Examples include a button that is clicked, or a drop down list whose value has been changed/set, or a text box that has been enabled or disabled.
 
-As mentioned earlier, a components emmits triggers, and also listens for them, and reacts accordingly. The 1st component listens for a click on the tab. When this happens, it emmits a trigger `uiToggleTab`, together with the id of the clicked element. Try to understand this as the Tab yelling out - "I have been clicked! and here's my id (so you know what 'I' means or who 'I' is)".
 
-Before preceeding, its important to note the last 2 lines of the Flight code - 
+#### The Add Button Component
 
-    tab_component.attachTo('.js-tab > a');
-    tab_pane_component.attachTo('.js-tabpane');
+    var add_component = flight.component(function() {
 
-The components are attached to certain elements in the document. There are 2 things to be noted about this. To detect a click on Tab A and on Tab B, there is no repetition or duplication of code as the `tab_component` is not attached separately to the two tabs using any id. Rather the component is attached to the `js-tab` class common to all the tabs. The `tab_component`, when invoked, fetches the id of the clicked tab by traversing the `$node` object - `this.$node.parent().data('tpid')`. The other thing to note is that the component is attached to (in case of tab_component) `'.js -tab'`. The code will work even if it is attached to 'document', but then the component will listen to for `uiToggleTab`, throughout the document. Here, this is unnecessary, because we know for sure, that the triggers are going to be generated only and only on clicks to the link elements with the `.js-tab` class, and so we attach it specifically to that.
+      this.add_1 = function(event) {
+        this.trigger('addButtonClicked');
+      };
+      
+      // Component listeners
+      this.after('initialize', function() {
+        this.on('click', this.add_1);
+      });
+    });
 
-_In a manner of speaking, this is a Pub-Sub implementation_
+    add_component.attachTo('#add_button');
 
-The second component listens on the `uiToggletTab` trigger i.e, it listens for a tab being clicked. Like the tab component, the tab_pane_component is attached to multiple elements via `.js-tabpane`. Here, both the tabs and both the panes i.e, four elements listen and react the `uiToggleTab` trigger. Each element checks the argument that has been passed along with the trigger, and matches it to the elements own id. If it matches, the element shows itself by adding the `active` class to itself. If not, it removes the `active` class from itself.
+The `add_component` is attached to `#add_button`, thus providing a context i.e, reference to `this`. The component listeners block, set after the component is initialized, decides what all will the component react to, and how ill it do so. `add_component` will call the `add_1` function when it gets clicked. The `add_1` function in turn emmits a trigger `addButtonClicked` , which shall be available to all other components throughout the document. The responsibility of the `add_1` fcuntion ends here.
 
-####The Cool Part
-Addition of more tabs and panes now requires **no** additional JavaScripting. Just add the html with the appropriate classes, i.e, `js-tab` for the tab and `js-tab-pane` for the tab pane, and we're done. You can try this by editing the html of the second code snippet.
+#### The Subtract Button Component
 
-####Cool. So every function can now be a component and receive and emmit triggers!
-No. Flight isn't aimed at converting any and every function into a component. Chances are, there **will** be a genric function thats used by multiple functions/components, that doesn't need to be converted in a component. Only UI elements that have a certain functionality need to be componentized. Similarly, non UI functions that deal with reading/writing of data, can be made into Flight components.
+    var subtract_component = flight.component(function() {
+
+      this.sub_1 = function(event) {
+         this.trigger('subButtonClicked');
+      };
+      
+      // Component listeners
+      this.after('initialize', function() {
+        this.on('click', this.sub_1);
+      });
+    });
+
+    subtract_component.attachTo('#sub_button');
+
+The `subtract_component`is very similar to the `add_component` in behaviour and functionality
+
+#### The Result Box Component
+
+  var result_box_component = flight.component(function() {
+
+      this.add = function(event) {
+        current_val = $('#result_box').val();
+        $('#result_box').val(parseInt(current_val) + 1);
+      };
+      
+      this.sub = function(event) {
+        current_val = $('#result_box').val();
+        $('#result_box').val(parseInt(current_val) - 1);
+      };
+      
+      // Component Listeners   
+      this.after('initialize', function() {
+        this.on(document, 'addButtonClicked', this.add);
+        this.on(document, 'subButtonClicked', this.sub);
+      });
+    });
+
+    result_box_component.attachTo('#result_box');
+
+The `result_box_component` listens for two events i.e, `addButtonClicked` and `subButtonClicked` and calls the `add` function and the `sub` functions on these events respectively
+
+
+#### The flight code base is significantly larger than the plain jQuery code for even such a small functionality
+Agreed. The boilerplate code for flight may seem unnecessary at first, but as you add more functioanlity, the flight code base does not increase exponentially. Infact, there are a few things worth noticing here -
+
+- No component treads into the space of the other. Unlike the jQuery code, where clicking the `add_button` modifies the `result_box`, here the `add_box_component` only emmits a trigger. All the manipulation with respect to the result box is done within the `result_box_component` itself. So the complete functionality of a component is now visible at one place.
+
+- For any new funtionality that needs to be added to the result box, we just have to add a listener, and a function.
 
