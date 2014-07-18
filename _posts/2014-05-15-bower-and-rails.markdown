@@ -34,10 +34,10 @@ Assuming you already have an existing rails project, lets move jQuery from the g
 
 ### Where will bower install its files?
 
-Rails has a convention for assets, i.e, they either go into `app/assets/javascripts` or `vendor/assets/javascripts`. Bower, by default, will install all its files into a folder called `bower_components`, in the root directory of your app. To change this, we add a bower config file, `.bowerrc` at the root level, to tell bower where to install all its files. We wil install our dependencies in vendor/assets/javascripts. It will look something like this :
+Rails has a convention for assets, i.e, they either go into `app/assets/javascripts` or `vendor/assets/javascripts`. Bower, by default, will install all its files into a folder called `bower_components`, in the root directory of your app. To change this, we add a bower config file, `.bowerrc` at the root level, to tell bower where to install all its files. We wil install our dependencies in `vendor/assets/components`. It will look something like this :
 
     {
-      "directory" : "vendor/assets/javascripts"
+      "directory" : "vendor/assets/components"
     }
 
 Next we initialize a `bower.json` file for your project. This file will contain all the bower dependencies of your app. Its like the `Gemfile` for bower. To create this file, run the command `bower init`. This command will require a few user inputs as follows :
@@ -103,16 +103,16 @@ This returns a (huge) list of packages that have the name jQuery in it, as shown
 
 In our case, we look for the one that has just the name ‘jquery’, that happens to be the first one.
 
-To not break your code, you’d like to ensure that the version of jQuery you install via bower corresponds to the one you had in your gemfile. To look for the available versions, run the command.
+To not break your code, you’d like to ensure that the version of jQuery you install via bower corresponds to the one you had in your gemfile. To look for the available versions, run the command
 
 `bower info jquery`
 
-This returns amongs other details like the authors and the dependencies, a list of versions available for that particular package
-To install a particular version, lets say 1.9.0, run the command.
+This returns amongst other details like the authors and the dependencies, a list of versions available for that particular package
+To install a particular version, lets say 1.9.0, run the command
 
 `bower install jquery#1.9.0 --save`
 
-The `--save` flag updates your bower.json file, adding the package to the dependencies of your project. The `bower.json` file will now have an entry corresponding to jquery version 1.9.0 in its dependencies.
+The `--save` flag updates your bower.json file, adding the package to the dependencies of your project. The `bower.json` file will now have an entry corresponding to jquery version 1.9.0 in its dependencies
 
 Now, you should see a folder called jquery in `vendor/assets/javascripts`. This will contain jquery's source files, and its own `bower.json` file. Uncomment the line `// require jquery` by adding `=` making it `//= require jquery` in the `application.js` file.
 
