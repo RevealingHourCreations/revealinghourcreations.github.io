@@ -22,7 +22,7 @@ Bower is a cleaner, easier and more efficient way to do just this.
 
 ### Installing Bower
 
-Install Bower via the Node Pacakage Manager using the command
+Install Bower via the Node Package Manager using the command
 
     npm install -g bower
 
