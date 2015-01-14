@@ -31,7 +31,7 @@ Getting feedback from Makers about android SDK launch. They were eagrly wating f
 
 We have shown the some intresting demos based on Tah and Smart phone communication to control anything around you.Tah is the building block of IoT(Internet of Things).The Mood lamp applications, Motion control, controlling light bulb and Smart phone based controlled robot is what the people likes the most. After done with workshop we got great feedbacks from the visitors,Makers.
 
-<img src="https://cloud.githubusercontent.com/assets/8414343/5740399/18fb2c5a-9c29-11e4-8016-f250441ee324.jpg" width="300" height="169" alt='TahTalk2'> <img src="https://cloud.githubusercontent.com/assets/8414343/5740435/680d2f8c-9c29-11e4-92c2-ac7778e96f77.jpg"width="300" height="169" alt='TahTalk1'>
+<img src="https://cloud.githubusercontent.com/assets/8414343/5740399/18fb2c5a-9c29-11e4-8016-f250441ee324.jpg" width="300" height="169" alt='TahTalk2'> <img src="https://cloud.githubusercontent.com/assets/8414343/5740435/680d2f8c-9c29-11e4-92c2-ac7778e96f77.jpg" width="300" height="169" alt='TahTalk1'>
 
 <img src="https://cloud.githubusercontent.com/assets/8414343/5740506/0bb9fc78-9c2a-11e4-978b-2d2f5789dad2.jpg" width="300" height="300" alt='TahTalk3'>
 
