@@ -6,7 +6,7 @@ categories: rhc
 author: rituparna
 ---
 
-![piano_fullimage](https://cloud.githubusercontent.com/assets/4735401/5972623/c736bc2a-a882-11e4-8465-e713a89e5e86.jpg)
+![piano-stairs](https://cloud.githubusercontent.com/assets/2573556/5997897/22a59bc4-aae7-11e4-8b49-f44dcf8037ee.jpg)
 
 A few weeks ago we pitched the idea of doing Piano Stairs to the Phoenix Market City around Christmas — a shopping mall close to our office. Piano stairs as a concept has been implemented in various cities across the world as part of the “Fun Theory” project. Though I knew the work flow or rather the events that needed to be captured and processed, I was unaware of the most accurate way to do it. I began experimenting with using Light Dependent Resistors (LDR), which we quickly gave up on, followed by an ultrasonic pair and infrared transceivers.
 
@@ -20,7 +20,7 @@ We decided to go ahead with a capacitive touch sensor. I would recommend this se
 
 ### What are piano stairs?
 
-![piano_stairsb4and after](https://cloud.githubusercontent.com/assets/4735401/5972509/d67066c0-a880-11e4-9e21-0501fcb98432.jpeg)
+![piano_stairsb4and after](https://cloud.githubusercontent.com/assets/2573556/5997885/fd2abec4-aae6-11e4-852b-08db7338c9d0.jpg)
 
 A set of stairs that are designed to look like a piano with sensors attached to them so they trigger a MIDI device (typically piano sounds) as you step on them.
 
@@ -45,8 +45,6 @@ Serial processing of the data created a lag or queue which didn’t make the set
 MIDI output port had to be configured to output of the Pi.
 We were fortunate to discover the awesome simplicity of [VMPK](http://vmpk.sourceforge.net) at this point. But VMPK can’t be used on a Pi because it is bound to an X terminal and a screen is required to be able to use it. So the final deployment was done with VMPK running on a MacBook hooked to the Tah-MPR121 combination.
 
-###  Checkout the Video 
-
 
 ### Putting it all together
 
@@ -54,9 +52,8 @@ Now came perhaps the hardest part! On the night of deployment we assembled our e
 
 [![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/vMV_lfypvD4/0.jpg)](http://www.youtube.com/watch?v=vMV_lfypvD4)
 
-
 ### Customer reactions
-I had much fun talking to people, watching them go up and down the stairs, although an escalator was at hand. Little kids were often the first to figure it out. Everyone, right from the watchmen to doctors, college students to mothers, and children to grandparents thoroughly enjoyed the experience.
+I had a lot of fun talking to people, watching them go up and down the stairs, although an escalator was at hand. Little kids were often the first to figure it out. Everyone, right from the watchmen to doctors, college students to mothers, and children to grandparents thoroughly enjoyed the experience.
 
 [![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/37QWAPxf0uI/0.jpg)](http://www.youtube.com/watch?v=37QWAPxf0uI)
 
