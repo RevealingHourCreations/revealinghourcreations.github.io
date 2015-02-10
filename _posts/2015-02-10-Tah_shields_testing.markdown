@@ -1,3 +1,10 @@
+---
+layout: post
+title:  "Tah and Shields testing"
+date:   2015-02-10 06:15:00
+categories: Hardware testing
+author: vikas 
+---
 Tah and Shields Testing 
 ===
 
@@ -6,7 +13,7 @@ As we all knows we had successfully completed the Tah on crowdfunding campagn, w
 While i was working on Tah Testbed design it was half way cooked design but i found there are the long way to go in the design of Tah Testbed, previously the Ali and Anuj was working on this Tah Testbed, Ali had design the Testbed on general purpose pcb with the mess of wires, when i saw that pcb i know, i better not to go through that pcb it was very difficult for me to decode what the actual circuit is.
 During that period i came accross the **Git Hub** it was first time were i was interacting with git hub were all the source code and schematic files were stored, initially it was hard for me to interacting with git hub. Once i got an idea  of the first version of Tah Testbed hardware, I planed to designed a new home made pcb for Tah Testbed, by simply having few modifications to hardware design i finallize the circuit and i did the Schematic and layout design in Eagle CAD software which mainly used for professional PCB design.
 
-I designed the complete schematic and pcb layout for first batch of Tah having different footprint.The complete technical descriptions of the Tah Testbed is as follows below.
+I designed the complete schematic and pcb layout for first batch of Tah having different footprint.The complete technical descriptions of the Tah Testbed is as below.
 
 **Hardware:**
 
