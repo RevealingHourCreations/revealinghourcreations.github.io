@@ -4,7 +4,7 @@ task :new_post do
   require 'rubygems'
   title = ENV["title"] || "New Title"
   author = ENV["author"] || ""
-  slug = title.gsub(' ','-').downcase || title.gsub(' ','-').downcase
+  slug = title.gsub(' ','-').downcase
 
   TARGET_DIR = "_posts"
 
