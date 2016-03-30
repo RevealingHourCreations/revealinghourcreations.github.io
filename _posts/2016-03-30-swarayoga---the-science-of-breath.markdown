@@ -1,4 +1,9 @@
-# SwaraYoga - The Science of Breath
+---
+layout: post
+title: "Swarayoga - The Science of Breath"
+date: 2016-03-30 14:23:30 +0530
+author: ""
+---
 
 ### Introduction
 The breath is the source of Prana for the human body. It consists of five elements - Earth, Fire, Water, Air and Space, as illustrated in the figure below.
@@ -35,4 +40,5 @@ The Space element is associated with an ungrounded by free state of mind.
 Water and Earth are associated with Kapha Dosha.
 Air, Fire and Water element are associated with Pitta Dosha.
 Ether and Air element are associated with Vata Dosha. 
+
 
